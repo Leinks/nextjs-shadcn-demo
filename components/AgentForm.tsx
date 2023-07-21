@@ -38,7 +38,7 @@ import { Input } from "@/components/ui/input";
 import Icons from "@/components/Icons";
 
 interface AgentFormProps extends React.HTMLAttributes<HTMLDivElement> {
-  buttonText: string;
+  buttonText: React.ReactNode;
   isEdit: boolean;
   agent: IAgent;
   onAgentHandler: (agent: z.infer<typeof formSchema>) => void;
