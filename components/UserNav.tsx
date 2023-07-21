@@ -16,24 +16,12 @@ import {
   DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useState } from "react";
 
 export default function UserNav() {
   const { username, setIsLogin, setUsername } = useGlobalContext();
   const router = useRouter();
   const {theme, setTheme } = useTheme()
-  const [ themeMode, setThemeMode] = useState("")
 
-  console.log(theme)
-   const handleClick = (event: string) => {
-   if(event === 'light'){
-    setThemeMode(`${<MoonIcon onClick={() => setTheme("light")}/>}`)
-   }else{
-    //  const setThemeMode = <SunIcon  onClick={() => setTheme("dark")}/>
-    setThemeMode(`${<SunIcon  onClick={() => setTheme("dark")}/>}`)
-   }
-    
-   }
 
   function logOut() {
     setIsLogin(false);
@@ -43,12 +31,7 @@ export default function UserNav() {
   return (
     <>
       <Toggle  >
-
-        {/* {theme ? "dark" :  <MoonIcon onClick={() => setTheme("light")}/>} : <SunIcon  onClick={() => setTheme("dark")}/> } */}
-        {/* {theme ? "dark" : <MoonIcon onClick={() => setTheme("light")}/>}  */}
-        {/* { themeMode } */}
-        <SunIcon  onClick={() => setTheme("light")}/>
-        {/* {console.log(theme)} */}
+        { theme == "dark" ? <SunIcon  onClick={() => setTheme("light")}/>: <MoonIcon onClick={() => setTheme("dark")}/>}
         
       </Toggle>
     <DropdownMenu>
